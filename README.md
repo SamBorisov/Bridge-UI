@@ -26,6 +26,6 @@ npm run start
 
 yarn start
 ```
-After deploying TestToken on Kovan testnet , connect
+After deploying TestToken on Kovan testnet , connect.
 Make sure you are in the Kovan testnet when connecting 
 
