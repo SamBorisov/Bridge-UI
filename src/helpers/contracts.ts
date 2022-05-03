@@ -14,7 +14,7 @@ const contracts:IContactsData[] = [
   {
     chain_id: 4, // Rinkeby
     bridge: BRIDGE_ADDRESS_Rinkeb,
-    token:TOKEN_ADDRESS_Kovan,
+    token:TOKEN_ADDRESS_Rinkeb,// TOKEN_ADDRESS_Kovan,
     balance: TOKEN_ADDRESS_Rinkeb
   }
   // ,

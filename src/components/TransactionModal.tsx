@@ -120,7 +120,7 @@ const TransactionModal = (props:{ handleSendTransaction:any, handleCloseModal:an
             if (props.AppState.chainId === 42) { // this is native token
               await BridgeService.lockToken(props.AppState,+form.toNet, form.token, form.amount)
             } else { // this is wrapped token
-              await BridgeService.burnToken(props.AppState,+form.fromNet, form.token, form.amount)
+              await BridgeService.burnToken(props.AppState,+form.toNet, form.token, form.amount)
             }
             return "OK";
         }
@@ -131,7 +131,7 @@ const TransactionModal = (props:{ handleSendTransaction:any, handleCloseModal:an
         
     }
     
-    async function mintOrRelease(key: any) {
+    async function mintOrUnlock(key: any) {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         props.AppState.account = accounts[0];
         const claim = props.AppState.claims[key]
@@ -142,8 +142,8 @@ const TransactionModal = (props:{ handleSendTransaction:any, handleCloseModal:an
             // props.store.saveStore()
             props.handleRemoveClaim(key)
 
-          } else { // type is release
-            await BridgeService.releaseToken(props.AppState,claim)
+          } else { // type is Unlock
+            await BridgeService.unlockToken(props.AppState,claim)
             // props.store.RemoveClaim(key)
             // props.store.saveStore()
             props.handleRemoveClaim(key)
@@ -280,7 +280,7 @@ const TransactionModal = (props:{ handleSendTransaction:any, handleCloseModal:an
                         <td>{  ethers.utils.formatUnits(t.amountWei) }</td>
                         <td/>
                         <td>
-                          <Button onClick={() => mintOrRelease(index)} size="sm" style={{width: '100px'}}>{ props.AppState.chainId === t.sourceChain ? 'Swtich' : 'Claim' }</Button>
+                          <Button onClick={() => mintOrUnlock(index)} size="sm" style={{width: '100px'}}>Swtich/Claim</Button>
                         </td>
                         <td>
                           <Button onClick={() => props.handleRemoveClaim(index)} size="sm" style={{width: '100px'}}>RemoveClaim</Button>

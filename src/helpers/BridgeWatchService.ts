@@ -55,30 +55,30 @@ class BridgeWatchService {
     }
   }
 
-  public async prepareReleaseTx (sourceChain: number, wrappedToken: any, amountWei: ethers.BigNumberish, receiver: any) {
-    const wTokens = this.appState.wrappedTokens
-    let wToken
-    for (let i = 0; i < wTokens.length; i++) {
-      if (wrappedToken === wTokens[i].wrappedToken) {
-        wToken = wTokens[i]
-      }
-    }
+  public async prepareUnlockTx (sourceChain: number, wrappedToken: any, amountWei: ethers.BigNumberish, receiver: any) {
+    // const wTokens = this.appState.wrappedTokens
+    // let wToken
+    // for (let i = 0; i < wTokens.length; i++) {
+    //   if (wrappedToken === wTokens[i].wrappedToken) {
+    //     wToken = wTokens[i]
+    //   }
+    // }
 
-    const txHash = ethers.utils.solidityKeccak256(
-      ['uint16', 'address', 'uint256', 'address'],
-      [sourceChain, wToken.token, amountWei, receiver]
-    )
+    // const txHash = ethers.utils.solidityKeccak256(
+    //   ['uint16', 'address', 'uint256', 'address'],
+    //   [sourceChain, wrappedToken, amountWei, receiver]
+    // )
 
 
     return {
-      targetChain: wToken.sourceChain,
+      targetChain: sourceChain,
       sourceChain,
-      token: wToken.token,
+      token: wrappedToken,
       amountWei,
       amount: ethers.utils.formatEther(amountWei),
       receiver,
-      txHash,
-      type: txType.RELEASE
+     // txHash,
+      type: txType.UNLOCK
     }
   }
 
@@ -98,7 +98,7 @@ class BridgeWatchService {
 
     this.rinBridge.on("Burn",async (sourceChain:any, amountWei:any, receiver:any) => {
       const wrappedToken = TOKEN_ADDRESS_Kovan;
-      const releaseTx = await this.prepareReleaseTx(sourceChain, wrappedToken, amountWei, receiver)
+      const releaseTx = await this.prepareUnlockTx(sourceChain, wrappedToken, amountWei, receiver)
       this.handleAddClaim(releaseTx)
       toast.success(`You can claim now ${ethers.utils.formatEther(amountWei)} tokens`)
     })
@@ -121,7 +121,7 @@ class BridgeWatchService {
 
     this.kovBridge.on("Burn", async (sourceChain:any, amountWei:any, receiver:any) => {
       const wrappedToken = TOKEN_ADDRESS_Kovan;
-      const releaseTx = await this.prepareReleaseTx(sourceChain, wrappedToken, amountWei, receiver)
+      const releaseTx = await this.prepareUnlockTx(sourceChain, wrappedToken, amountWei, receiver)
       this.handleAddClaim(releaseTx)
       toast.success(`You can claim now ${ethers.utils.formatEther(amountWei)} tokens`)
     })

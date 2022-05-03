@@ -97,16 +97,16 @@ class BridgeService {
     await burn.wait(1)
   }
 
-  public static async releaseToken (appState:IAppState,claim: { targetChain: any; sourceChain: any; token: any; amountWei: any; receiver: any }) {
+  public static async unlockToken (appState:IAppState,claim: { targetChain: any; sourceChain: any; token: any; amountWei: any; receiver: any }) {
     const bridgeAddress = getChainContracts(claim.targetChain).bridge
     const bridgeContract = EthersHelper.getContract(bridgeAddress, Bridge.abi, appState.library, appState.account)
 
-    const release = await bridgeContract.release({
-      sourceChain: claim.sourceChain,
-      token: claim.token,
-      amount: claim.amountWei,
-      receiver: claim.receiver,
-    })
+    const release = await bridgeContract.unlock(
+       claim.sourceChain,
+       claim.token,
+       claim.amountWei,
+       claim.receiver
+    )
 
     await release.wait(1)
   }

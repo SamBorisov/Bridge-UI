@@ -7,5 +7,5 @@ export const networks = [
 
 export const txType = Object.freeze({
   MINT: 'mint',
-  RELEASE: 'release'
+  UNLOCK: 'unlock'
 })
