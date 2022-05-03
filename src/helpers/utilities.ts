@@ -43,7 +43,12 @@ export function ellipseAddress(
   address: string = "",
   width: number = 10
 ): string {
-  return `${address.slice(0, width)}...${address.slice(-width)}`;
+  if ( address !== null){
+    return `${address.slice(0, width)}...${address.slice(-width)}`;
+  }
+  else{
+    return "";
+  }
 }
 
 export function padLeft(n: string, width: number, z?: string): string {
