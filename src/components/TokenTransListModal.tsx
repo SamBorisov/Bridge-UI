@@ -67,7 +67,7 @@ const TokenTransListModal = (props: ITokenTransListModalProp ) => {
        return tranlist;
     }
     
-    async function ShowDetails(hash: any) 
+    async function ShowDetails(hash: any) {
         props.handleShowDetails(hash);
         // if (hash=== detailHash) 
         // {
