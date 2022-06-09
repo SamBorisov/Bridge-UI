@@ -17,11 +17,12 @@ const TokenTransDetaileModal  = styled.div`
         justifyContent: center; 
         `;
 
-const TokenTransDetailHeader = styled.div`
+const TokenTransDetailHeader = styled.div`    
         marginTop: 100px; 
         left: 10%;
         alignItems: center; 
         justifyContent: center; 
+        background-color: #088F8F;
         `;
 
 interface ITokenTransDetailProp {

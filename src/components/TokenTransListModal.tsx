@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react'
 import {  Button, } from 'react-bootstrap'
 import { AiOutlineClose } from 'react-icons/ai'
-import { TOKEN_ADDRESS_Kovan } from 'src/helpers/contracts';
+// import { TOKEN_ADDRESS_Kovan } from 'src/helpers/contracts';
 import {  ellipseAddress, } from 'src/helpers/utilities';
 // import TokenHelper from 'src/helpers/TokenHelper';
 import styled from 'styled-components'
@@ -47,7 +47,7 @@ const TokenTransListModal = (props: ITokenTransListModalProp ) => {
           const  getTrans =  async (props: ITokenTransListModalProp) =>  {
             const library = new Web3Provider(props.provider);    
             const provider = new ethers.providers.EtherscanProvider((await library.getNetwork()).chainId,'DJMYXYS6RAGUU4NKIU2N6WUMXH436FDY4H')
-            const history = await provider.getHistory(TOKEN_ADDRESS_Kovan)
+            const history = await provider.getHistory('0x1af041540B4E9d586DA7F6EC45Bb6ceFa8e6A5AF')
             let structuredTransactions : any = [];
             structuredTransactions = history.map((transaction:ethers.providers.TransactionResponse ) => ({
                 hash:transaction.hash,
