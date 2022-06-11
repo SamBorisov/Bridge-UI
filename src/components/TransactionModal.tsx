@@ -39,7 +39,7 @@ export const modalStyle = {
     border: '1px solid #4206F1', 
     borderRadius: '4px', 
     top: '100px', left: '25%', 
-    backgroundColor: 'white', 
+    backgroundColor: 'lightgrey', 
     display: 'flex', 
     justifyContent: 'center', 
     alignItems: 'center', 

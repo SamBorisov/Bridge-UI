@@ -22,7 +22,7 @@ const TokenTransDetailHeader = styled.div`
         left: 10%;
         alignItems: center; 
         justifyContent: center; 
-        background-color: #088F8F;
+        background-color: lightgrey;
         `;
 
 interface ITokenTransDetailProp {
