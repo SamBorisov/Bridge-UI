@@ -12,7 +12,7 @@ const TokenTransDetaileModal  = styled.div`
         borderRadius: 4px;
         width: 80%;
         left: 10%;
-        backgroundColor: black;
+        background-color: lightgrey;
         alignItems: center; 
         justifyContent: center; 
         `;
@@ -106,7 +106,7 @@ const TokenTransDetailModal = (props: ITokenTransDetailProp ) => {
     if (props.show  && props.transactionHash !== '') {
         const tran =getTransaction(props);
         
-        return <TokenTransDetaileModal className="custom-modal" >
+        return <TokenTransDetaileModal>
             <div className="close-modal-icon" onClick={props.handleCloseModal} style={{position: 'absolute', right: 15, top: 5}}>
                 <AiOutlineClose size={25} style={{color: 'blue', cursor: 'pointer'}} />
             </div>

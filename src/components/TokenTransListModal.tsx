@@ -12,6 +12,7 @@ import styled from 'styled-components'
 // import {TransactionChecker} from '../helpers/TransactionChecker';
 
 const TokenTransListModalModal  = styled.div`
+        min-width: 1150px;
         position: absolute; 
         border: 3px solid #871A85;
         borderRadius: 4px;
@@ -104,8 +105,8 @@ const TokenTransListModal = (props: ITokenTransListModalProp ) => {
                             {result.map((trans: any) => (
                                 <tr key={trans.hash}>
                                     <td>{trans.hash}</td>
-                                    <td>{ellipseAddress(trans.addressFrom)}</td>
-                                    <td>{ellipseAddress(trans.addressTo)}</td>
+                                    <td title={trans.addressFrom}>{ellipseAddress(trans.addressFrom)}</td>
+                                    <td title={trans.addressTo}>{ellipseAddress(trans.addressTo)}</td>
                                     <td>
                                         <Button onClick={() => ShowDetails(trans.hash)} size="sm" style={{ width: '100px' }}>show</Button>
                                     </td>
