@@ -2,6 +2,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
+import { EtherscanProvider_API_KEY } from 'src/Contracts/contracts';
 import styled from 'styled-components'
 // import Web3 from 'web3';
 // import Wrapper  from './Wrapper'
@@ -67,7 +68,7 @@ const TokenTransDetailModal = (props: ITokenTransDetailProp ) => {
                 // const accounts = await web3.eth.getAccounts();
                     const transactionHash = props.transactionHash.toString();
                     const library = new Web3Provider(props.provider);    
-                    const provider = new ethers.providers.EtherscanProvider((await library.getNetwork()).chainId,'DJMYXYS6RAGUU4NKIU2N6WUMXH436FDY4H')
+                    const provider = new ethers.providers.EtherscanProvider((await library.getNetwork()).chainId,EtherscanProvider_API_KEY)
                     const transaction = await provider.getTransactionReceipt(transactionHash)
                     
                     s.from = transaction.from
