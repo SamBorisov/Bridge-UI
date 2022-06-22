@@ -43,8 +43,7 @@ const TokenTransListModal = (props: ITokenTransListModalProp ) => {
         const [tranlist, setTrans] = useState([]);
       
         useEffect(() => {
-          // You need to restrict it at some point
-          // This is just dummy code and should be replaced by actual
+
           const  getTrans =  async (props: ITokenTransListModalProp) =>  {
             const library = new Web3Provider(props.provider);    
             const provider = new ethers.providers.EtherscanProvider((await library.getNetwork()).chainId,'DJMYXYS6RAGUU4NKIU2N6WUMXH436FDY4H')
@@ -54,10 +53,6 @@ const TokenTransListModal = (props: ITokenTransListModalProp ) => {
                 hash:transaction.hash,
                 addressTo: transaction.to,
                 addressFrom: transaction.from,
-                // timestamp: new Date(block.timestamp * 1000).toLocaleString(),
-                // message: transaction.message,
-                // keyword: transaction.keyword,
-               // amount: transaction.value._hex / (10 ** 18)
             }));
             setTrans(structuredTransactions);
         };
