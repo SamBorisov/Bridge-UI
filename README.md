@@ -64,9 +64,9 @@ button, connection with wallet and more
 - Contracts - folder with the ABIs and necessary keys for Infura or EtherscanProvider
 
 ## What could be better? 
-The current branch doesn't have any validation and it's quite centralized! However...
+The current bridge doesn't have any validation and it's quite centralized! However...
 
-Bridge has a second branch [Bridge2](https://github.com/SamBorisov/Bridge/tree/Bridge2) that has good documentation, it is also working with Observers and Defenders! This is an entirely new bridge that's more secure. There are links for the Observer/Defender and the Front-End that are built by others, working as a team!
+Bridge contracts have a second branch [Bridge2](https://github.com/SamBorisov/Bridge/tree/Bridge2) that has good documentation, it is also working with Observers and Defenders! This is an entirely new bridge that's more secure. There are links for the Observer/Defender and the Front-End that are built by others, working as a team!
 
 ## Technology used
 Solidity, OpenZeppelin, Hardhat, Node.js, React, Ethers and more
